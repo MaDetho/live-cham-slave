@@ -5,6 +5,8 @@ const port = process.env.PORT || 8443;
 const url = process.env.APP_URL || 'https://livechamslave.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, {webHook: {port: port}});
 
+//const bot = new TelegramBot(TOKEN, {polling: true});
+
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
 let isWatching = false;
@@ -84,36 +86,36 @@ bot.onText(/\/stop/, (msg, match) => {
 getKillFeed = (killData) => {
     let killFeed = "";
     killFeed += killData.killerNick;
-    killFeed += "(" + getSideSmall(killData.killerSide) + ")";
-    killFeed += " killed ";
+    //killFeed += "(" + getSideSmall(killData.killerSide) + ")";
+    killFeed += " " + (killData.headShot ? "\u{1F480}" : "\u{1F44A}") + " ";
     killFeed += killData.victimNick;
-    killFeed += "(" + getSideSmall(killData.victimSide) + ")";
-    killFeed += " with";
-    killFeed += " " + killData.weapon;
-    killFeed += " " + (killData.headShot ? "(hs)" : "");
+    //killFeed += "(" + getSideSmall(killData.victimSide) + ")";
+    //killFeed += " with";
+    //killFeed += " " + killData.weapon;
+    //killFeed += " " + (killData.headShot ? "(hs)" : "");
     return killFeed
 }
 
 getBombPlantFeed = (bombPlantData) => {
     let bombPlantFeed = "";
     bombPlantFeed += bombPlantData.playerName;
-    bombPlantFeed += " planted the bomb ";
-    bombPlantFeed += "(" + bombPlantData.tPlayers + "on" + bombPlantData.ctPlayers + ")";
+    bombPlantFeed += " planted \u{1F4A3} ";
+    //bombPlantFeed += "(" + bombPlantData.tPlayers + "on" + bombPlantData.ctPlayers + ")";
     return bombPlantFeed
 }
 
 getBombDefusedFeed = (bombDefusedData) => {
     let bombDefusedFeed = bombDefusedData.playerNick;
-    bombDefusedFeed += " defused the bomb";
+    bombDefusedFeed += " defused \u{1F527}";
     return bombDefusedFeed
 }
 
 getRoundEndFeed = (roundEndtData) => {
-    let roundEndFeed = "Round over - Winner: "
-    roundEndFeed += roundEndtData.winner;
-    roundEndFeed += " - " + roundEndtData.winType;
+    let roundEndFeed = ""
+    roundEndFeed += roundEndtData.winner + " won";
+    //roundEndFeed += " - " + roundEndtData.winType;
     roundEndFeed += "\n";
-    roundEndFeed += "SCORE CT " + roundEndtData.counterTerroristScore + "-" + roundEndtData.terroristScore + " T";
+    roundEndFeed += "\u{1F46E} " + roundEndtData.counterTerroristScore + ":" + roundEndtData.terroristScore + " \u{1F473}";
     return roundEndFeed
 }
 
