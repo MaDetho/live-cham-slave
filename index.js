@@ -1,7 +1,18 @@
 const { HLTV } = require('hltv');
+const express = require('express');
+const app = express();
 const TelegramBot = require('node-telegram-bot-api');
 const token = '565495861:AAFD8f1OFJ1OsaN6nGhqP-_pwjIA3We8HKg';
 const bot = new TelegramBot(token, { polling: true });
+
+app.get('/', function (req, res) {
+    res.send('bruv');
+  });
+
+let port = process.env.PORT || 3000;
+app.listen(port, function() {
+    console.log("Listening on Port " + port);
+});
 
 let isWatching = false;
 bot.onText(/\/live (\d{7})/, (msg, match) => {
