@@ -65,7 +65,7 @@ bot.onText(/\/live (\d{7})/, (msg, match) => {
                 });
             } else if (!match) {
                 sendMessage(msg.chat.id, "Match is invalid!");
-            } else if (match.live) {
+            } else if (!match.live) {
                 sendMessage(msg.chat.id, "Match is not live yet!");
             }
         })
