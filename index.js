@@ -5,11 +5,11 @@ const port = process.env.PORT || 8443;
 const url = process.env.APP_URL || 'https://livechamslave.herokuapp.com:443';
 
 //Dev
-const bot = new TelegramBot(TOKEN, {polling: true});
+//const bot = new TelegramBot(TOKEN, {polling: true});
 
 //Prod
-//const bot = new TelegramBot(TOKEN, {webHook: {port: port}});
-//bot.setWebHook(`${url}/bot${TOKEN}`);
+const bot = new TelegramBot(TOKEN, {webHook: {port: port}});
+bot.setWebHook(`${url}/bot${TOKEN}`);
 
 let isWatching = false;
 let liveMatch;
