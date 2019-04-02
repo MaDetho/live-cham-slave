@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hltv": "^2.7.0",
+    "hltv": "^2.14.0",
     "node-telegram-bot-api": "^0.30.0"
   }
 }
