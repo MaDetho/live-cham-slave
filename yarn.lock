@@ -419,10 +419,10 @@ has@^1.0.1, has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hltv@^2.14.0:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/hltv/-/hltv-2.14.0.tgz#e604e5bd41a7b1dca386b491bfe0aee97b1ebb34"
-  integrity sha512-r4QFh3oqCtVbjryLjH+MxgZwXoQWRZzXU1Ho7YGsNAy2x/+vxX/axckuYx95Z3AnGn0OGqensm1LhMn/Z9NooA==
+hltv@^2.14.3:
+  version "2.14.3"
+  resolved "https://registry.yarnpkg.com/hltv/-/hltv-2.14.3.tgz#266dde6d94661edf071f4e4db492422f77d31891"
+  integrity sha512-4+y+M7FQ89u7aT/ghAYNE56Igy8sbNvxI1qDEpK10g09lremrmTM4aXRlTprV9Ibrwty8mDmKE2Nc1YKPquaHA==
   dependencies:
     cheerio "^1.0.0-rc.2"
     request "^2.88.0"
